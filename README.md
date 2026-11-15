@@ -115,6 +115,7 @@ TieLiteDesktop.exe
 
 - 手机号验证码登录
 - Cookie 登录
+- 扫码登陆
 
 ## 构建
 
