@@ -274,6 +274,20 @@ namespace TieLiteDesktop
                     Svc.Window?.SelectNav("favorites");
                     Svc.Nav.Push(() => new FavoritesView(), "收藏");
                     break;
+                case "cached":
+                    Svc.Window?.SelectNav("cachedposts");
+                    Svc.Nav.Push(() => new CachedPostsView(), "缓存的帖子");
+                    break;
+                case "cachedwindow":
+                {
+                    var cachedItem = CachedThreadStore.All().FirstOrDefault();
+                    if (cachedItem != null)
+                    {
+                        _loginWindow = new CachedThreadWindow(cachedItem);
+                        _loginWindow.Show();
+                    }
+                    break;
+                }
                 case "login":
                     _loginWindow = new LoginWindow { Owner = Svc.Window };
                     _loginWindow.Show();

@@ -182,8 +182,22 @@ namespace TieLiteDesktop.Views
             WindowStyle = WindowStyle.None;
             ResizeMode = ResizeMode.CanResize;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            SetResourceReference(BackgroundProperty, "AppBackground");
-            SetResourceReference(ForegroundProperty, "TextPrimary");
+            var dark = Svc.EffectiveTheme == "dark";
+            Background = new System.Windows.Media.SolidColorBrush(dark
+                ? System.Windows.Media.Color.FromRgb(0x0C, 0x0E, 0x12)
+                : System.Windows.Media.Color.FromRgb(0xF1, 0xF2, 0xF5));
+            Foreground = new System.Windows.Media.SolidColorBrush(dark
+                ? System.Windows.Media.Color.FromRgb(0xF5, 0xF7, 0xFB)
+                : System.Windows.Media.Color.FromRgb(0x15, 0x1A, 0x22));
+
+            TextBlock LocalText(string value, double size, FontWeight? weight = null, bool secondary = false)
+            {
+                var block = Ui.Text(value, size, weight, secondary ? "TextSecondary" : "TextPrimary");
+                block.Foreground = new System.Windows.Media.SolidColorBrush(dark
+                    ? (secondary ? System.Windows.Media.Color.FromRgb(0xC2, 0xC9, 0xD6) : System.Windows.Media.Color.FromRgb(0xF5, 0xF7, 0xFB))
+                    : (secondary ? System.Windows.Media.Color.FromRgb(0x46, 0x50, 0x5F) : System.Windows.Media.Color.FromRgb(0x15, 0x1A, 0x22)));
+                return block;
+            }
 
             System.Windows.Shell.WindowChrome.SetWindowChrome(this, new System.Windows.Shell.WindowChrome
             {
@@ -201,10 +215,10 @@ namespace TieLiteDesktop.Views
             header.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
             header.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
             var title = new StackPanel();
-            title.Children.Add(Ui.Text(thread.Title, 19, FontWeights.SemiBold));
-            title.Children.Add(Ui.Text(thread.ForumName + " · 缓存于 " +
+            title.Children.Add(LocalText(thread.Title, 19, FontWeights.SemiBold));
+            title.Children.Add(LocalText(thread.ForumName + " · 缓存于 " +
                                        DateTimeOffset.FromUnixTimeSeconds(thread.SavedAt).LocalDateTime.ToString("yyyy-MM-dd HH:mm"),
-                11.5, null, "TextTertiary"));
+                11.5, null, true));
             header.Children.Add(title);
             var close = Ui.IconButton("\uE8BB", "关闭", 34);
             close.Click += (_, _) => Anim.AnimateClose(this);
@@ -229,8 +243,12 @@ namespace TieLiteDesktop.Views
                     Padding = new Thickness(14),
                     Margin = new Thickness(0, 0, 0, 8),
                 };
-                card.SetResourceReference(Border.BackgroundProperty, "Surface");
-                card.SetResourceReference(Border.BorderBrushProperty, "Border");
+                card.Background = new System.Windows.Media.SolidColorBrush(dark
+                    ? System.Windows.Media.Color.FromRgb(0x18, 0x1C, 0x24)
+                    : System.Windows.Media.Color.FromRgb(0xFF, 0xFF, 0xFF));
+                card.BorderBrush = new System.Windows.Media.SolidColorBrush(dark
+                    ? System.Windows.Media.Color.FromRgb(0x2A, 0x31, 0x40)
+                    : System.Windows.Media.Color.FromRgb(0xE3, 0xE6, 0xEB));
                 var body = new StackPanel();
                 var author = Ui.Text(post.Author + " · " + post.Floor + "楼", 12, FontWeights.SemiBold, "TextSecondary");
                 body.Children.Add(author);
@@ -283,7 +301,7 @@ namespace TieLiteDesktop.Views
                     }
                     else if (!string.IsNullOrWhiteSpace(segment.Text))
                     {
-                        var text = Ui.Text(segment.Text, 13, null, "TextPrimary");
+                        var text = LocalText(segment.Text, 13, null);
                         text.Margin = new Thickness(0, 4, 0, 0);
                         text.TextWrapping = TextWrapping.Wrap;
                         body.Children.Add(text);
