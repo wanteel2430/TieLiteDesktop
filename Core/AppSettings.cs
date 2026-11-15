@@ -79,6 +79,7 @@ namespace TieLiteDesktop.Core
         private bool _minimizeToTray;
         private bool _skipExitPrompt;
         private bool _lockOnRestore = true;
+        private bool _autoSign;
         private double _cardOpacity = 0.5;
         private string[] _hiddenEmoticons = Array.Empty<string>();
         public string Accent { get => _accent; set => Set(ref _accent, value); }
@@ -101,6 +102,7 @@ namespace TieLiteDesktop.Core
         public bool MinimizeToTray { get => _minimizeToTray; set => Set(ref _minimizeToTray, value); }
         public bool SkipExitPrompt { get => _skipExitPrompt; set => Set(ref _skipExitPrompt, value); }
         public bool LockOnRestore { get => _lockOnRestore; set => Set(ref _lockOnRestore, value); }
+        public bool AutoSign { get => _autoSign; set => Set(ref _autoSign, value); }
         public double CardOpacity { get => _cardOpacity; set => Set(ref _cardOpacity, Math.Clamp(value, 0.3, 1.0)); }
 
         private double _fontScale = 1.0;

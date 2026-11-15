@@ -207,6 +207,33 @@ namespace TieLiteDesktop.Views
             }
         }
 
+        private async System.Threading.Tasks.Task AutoSignAsync()
+        {
+            if (!Svc.Settings.AutoSign || !Svc.Account.IsLoggedIn) return;
+            try
+            {
+                var forums = await Svc.Api.GetFollowedForumsAsync();
+                var targets = forums.Where(forum => !forum.IsSigned).ToList();
+                if (targets.Count == 0) return;
+                var success = 0;
+                foreach (var forum in targets)
+                {
+                    try
+                    {
+                        await Svc.Api.SignForumAsync(forum.Id, forum.Name);
+                        success++;
+                    }
+                    catch
+                    {
+                    }
+                }
+                if (success > 0) ShowToast("自动签到完成：" + success + " 个吧");
+            }
+            catch
+            {
+            }
+        }
+
         private async System.Threading.Tasks.Task PlayStartupAnimationAsync()
         {
             SplashOverlay.Visibility = Visibility.Visible;
@@ -486,6 +513,7 @@ namespace TieLiteDesktop.Views
         {
             ApplyBackgroundImage();
             _ = PlayStartupAnimationAsync();
+            _ = AutoSignAsync();
             Anim.RoundWindowCorners(this);
             var work = SystemParameters.WorkArea;
             MaxWidth = work.Width;

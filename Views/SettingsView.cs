@@ -855,6 +855,11 @@ namespace TieLiteDesktop.Views
             traySwitch.Unchecked += (_, _) => { Svc.Settings.MinimizeToTray = false; Svc.Settings.Save(); };
             others.Children.Add(SettingRow("最小化到托盘", "关闭窗口时隐藏到托盘并保留图标", traySwitch));
 
+            var autoSign = new ToggleSwitch { IsChecked = Svc.Settings.AutoSign, VerticalAlignment = VerticalAlignment.Center };
+            autoSign.Checked += (_, _) => { Svc.Settings.AutoSign = true; Svc.Settings.Save(); };
+            autoSign.Unchecked += (_, _) => { Svc.Settings.AutoSign = false; Svc.Settings.Save(); };
+            others.Children.Add(SettingRow("自动签到", "启动时自动签到所有已关注的吧", autoSign));
+
             var riskSwitch = new ToggleSwitch { IsChecked = Svc.Settings.ShowPostRiskWarning, VerticalAlignment = VerticalAlignment.Center };
             riskSwitch.Checked += (_, _) => { Svc.Settings.ShowPostRiskWarning = true; Svc.Settings.Save(); };
             riskSwitch.Unchecked += (_, _) => { Svc.Settings.ShowPostRiskWarning = false; Svc.Settings.Save(); };
