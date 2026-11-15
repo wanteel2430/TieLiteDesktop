@@ -26,7 +26,7 @@ namespace TieLiteDesktop.Core
         public string Portrait { get; set; } = "";
         public long Time { get; set; }
         public string Ip { get; set; } = "";
-        public List<CachedSegment> Segments { get; } = new();
+        public List<CachedSegment> Segments { get; set; } = new();
     }
 
     public sealed class CachedThread
@@ -38,7 +38,7 @@ namespace TieLiteDesktop.Core
         public string Key { get; set; } = "";
         public bool OnlyOp { get; set; }
         public int MaxPages { get; set; }
-        public List<CachedPost> Posts { get; } = new();
+        public List<CachedPost> Posts { get; set; } = new();
     }
 
     /// <summary>Locally cached thread snapshots (max 30).</summary>

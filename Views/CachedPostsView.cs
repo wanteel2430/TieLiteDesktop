@@ -182,6 +182,8 @@ namespace TieLiteDesktop.Views
             WindowStyle = WindowStyle.None;
             ResizeMode = ResizeMode.CanResize;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            SetResourceReference(BackgroundProperty, "AppBackground");
+            SetResourceReference(ForegroundProperty, "TextPrimary");
 
             System.Windows.Shell.WindowChrome.SetWindowChrome(this, new System.Windows.Shell.WindowChrome
             {
