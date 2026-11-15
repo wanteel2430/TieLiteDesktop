@@ -5,3 +5,5 @@ data/
 *.user
 *.log
 publish/
+
+*.zip
