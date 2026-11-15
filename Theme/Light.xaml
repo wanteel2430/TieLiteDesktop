@@ -1,0 +1,60 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="AppBackgroundColor">#F1F2F5</Color>
+    <Color x:Key="SidebarBackgroundColor">#F6F7F9</Color>
+    <Color x:Key="SurfaceColor">#FFFFFF</Color>
+    <Color x:Key="SurfaceAltColor">#F7F8FA</Color>
+    <Color x:Key="SurfaceHoverColor">#EDEFF3</Color>
+    <Color x:Key="BorderColor">#E4E7EC</Color>
+    <Color x:Key="BorderStrongColor">#D3D8E0</Color>
+    <Color x:Key="TextPrimaryColor">#14161B</Color>
+    <Color x:Key="TextSecondaryColor">#6E7683</Color>
+    <Color x:Key="TextTertiaryColor">#9CA3AF</Color>
+    <Color x:Key="AccentColor">#3B6BF6</Color>
+    <Color x:Key="AccentHoverColor">#2E5AE0</Color>
+    <Color x:Key="AccentSoftColor">#EAF0FF</Color>
+    <Color x:Key="AccentTextColor">#FFFFFF</Color>
+    <Color x:Key="DangerColor">#E5484D</Color>
+    <Color x:Key="DangerSoftColor">#FDECEC</Color>
+    <Color x:Key="SuccessColor">#2E9E6B</Color>
+    <Color x:Key="OverlayColor">#D9000000</Color>
+    <Color x:Key="ScrollThumbColor">#40000000</Color>
+    <Color x:Key="ScrollThumbHoverColor">#66000000</Color>
+
+    <SolidColorBrush x:Key="AppBackground" Color="{StaticResource AppBackgroundColor}"/>
+    <SolidColorBrush x:Key="SidebarBackground" Color="{StaticResource SidebarBackgroundColor}"/>
+    <SolidColorBrush x:Key="Surface" Color="{StaticResource SurfaceColor}"/>
+    <SolidColorBrush x:Key="CardSurface" Color="{StaticResource SurfaceColor}"/>
+    <SolidColorBrush x:Key="SurfaceAlt" Color="{StaticResource SurfaceAltColor}"/>
+    <SolidColorBrush x:Key="SurfaceHover" Color="{StaticResource SurfaceHoverColor}"/>
+    <SolidColorBrush x:Key="Border" Color="{StaticResource BorderColor}"/>
+    <SolidColorBrush x:Key="BorderStrong" Color="{StaticResource BorderStrongColor}"/>
+    <SolidColorBrush x:Key="TextPrimary" Color="{StaticResource TextPrimaryColor}"/>
+    <SolidColorBrush x:Key="TextSecondary" Color="{StaticResource TextSecondaryColor}"/>
+    <SolidColorBrush x:Key="TextTertiary" Color="{StaticResource TextTertiaryColor}"/>
+    <SolidColorBrush x:Key="Accent" Color="{StaticResource AccentColor}"/>
+    <SolidColorBrush x:Key="AccentHover" Color="{StaticResource AccentHoverColor}"/>
+    <SolidColorBrush x:Key="AccentSoft" Color="{StaticResource AccentSoftColor}"/>
+    <SolidColorBrush x:Key="ScrollThumbBrush" Color="{StaticResource ScrollThumbColor}"/>
+    <SolidColorBrush x:Key="ScrollThumbHoverBrush" Color="{StaticResource ScrollThumbHoverColor}"/>
+    <SolidColorBrush x:Key="AccentText" Color="{StaticResource AccentTextColor}"/>
+    <SolidColorBrush x:Key="Danger" Color="{StaticResource DangerColor}"/>
+    <SolidColorBrush x:Key="DangerSoft" Color="{StaticResource DangerSoftColor}"/>
+    <SolidColorBrush x:Key="Success" Color="{StaticResource SuccessColor}"/>
+    <SolidColorBrush x:Key="Overlay" Color="{StaticResource OverlayColor}"/>
+
+    <LinearGradientBrush x:Key="AccentGradient" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#4C7BFF" Offset="0"/>
+        <GradientStop Color="#2F5BE8" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="HeroGradient" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#3B6BF6" Offset="0"/>
+        <GradientStop Color="#6C8DFF" Offset="1"/>
+    </LinearGradientBrush>
+
+    <FontFamily x:Key="UiFont">MiSans, Microsoft YaHei UI, Segoe UI</FontFamily>
+    <FontFamily x:Key="IconFont">Segoe Fluent Icons, Segoe MDL2 Assets</FontFamily>
+
+</ResourceDictionary>

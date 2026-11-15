@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>TieLiteDesktop</AssemblyName>
+    <RootNamespace>TieLiteDesktop</RootNamespace>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <Version>1.0.1</Version>
+    <Company>DSTeeL</Company>
+    <Product>TieLiteDesktop</Product>
+    <Authors>DSTeeL</Authors>
+    <Copyright>© 2026 DSTeeL</Copyright>
+    <Description>TieLiteDesktop Tieba desktop client</Description>
+    <Product>TieLiteDesktop</Product>
+    <AssemblyTitle>TieLiteDesktop</AssemblyTitle>
+    <Company>DSTeeL</Company>
+    <SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\**\*" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Fixtures\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
